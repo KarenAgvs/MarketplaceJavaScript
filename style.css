@@ -17,16 +17,20 @@ body {
   width: 100%;
   height:20% ;
 }
-.imagen-carrito{
+.btn-shops{
   width: 50px;
   height: 50px;
 }
-
 .Image-div{
-  display: flex;
-  align-content: flex-end;
+  width: 5%;
 }
-
+.div-shopping{
+  background-color: rgb(255, 255, 255);
+  width: 400px;
+  height: 300px;
+  border-radius: 2px;
+  /*display: none;*/
+}
 header {
   width: 100%;
   height: 10%;

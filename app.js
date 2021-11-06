@@ -1,4 +1,9 @@
 const main = document.getElementById('main');
+const btnshops=document.querySelector('.btn-shops');
+const shopocult=document.querySelector('.shop-ocult');
+
+
+shoppings=[]
 
 create_cards();
 function create_cards(){
@@ -31,10 +36,40 @@ function create_cards(){
     card_render.appendChild(price_product);
     card_render.appendChild(name_product);
     card_render.appendChild(btn_card);
-    main.appendChild(card_render);
-
-    
+    main.appendChild(card_render); 
   });
+}
+
+function Showshopping(){
+  shopocult.innerHTML=''
+  let listShop=[... new Set(shoppings)]
+
+  listShop.forEach(elemnt => {
+    const allproducts=products.filter(productos => {
+      return productos.id === parseInt(item);
+    })
+
+
+
+  const shoppingCart = document.createElement('div');
+  const name = document.createElement('p');
+  const price = document.createElement('p');
+  const amount = document.createElement('p');
+  const add = document.createElement('button');
+  const substract = document.createElement('button');
+  const deleteP = document.createElement('button');
+
+
+  add.textContent='>';
+  substract.textContent='<';
+  deleteP.textContent='x'
+
+  shoppingCart.appendChild(name);
+  shoppingCart.appendChild(price);
+  shoppingCart.appendChild(amount);
+  shoppingCart.appendChild(add);
+  shoppingCart.appendChild(substract);
+  shoppingCart.appendChild(deleteP);
 }
 
 
