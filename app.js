@@ -99,6 +99,7 @@ function showshopping(){
   
   substract.addEventListener('click',subtracttoShopCart)
   deleteP.addEventListener('click',deletefromShopCart)
+  add.addEventListener('click', addtoShopCart)
   divshopping.appendChild(shoppingCart); 
   
   })
@@ -122,6 +123,8 @@ function deletefromShopCart(e){
   })
   showshopping();
 }
+
+
 
 btnshops.addEventListener('click', () => {
   divshopping.classList.toggle('shop-ocult');
