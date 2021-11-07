@@ -87,6 +87,8 @@ function showshopping(){
   deleteP.textContent='x';
   amount.textContent=sumAmount;
 
+  
+
   shoppingCart.appendChild( imageProduct);
   shoppingCart.appendChild(name);
   shoppingCart.appendChild(price);
@@ -94,7 +96,8 @@ function showshopping(){
   shoppingCart.appendChild(amount);
   shoppingCart.appendChild(add);
   shoppingCart.appendChild(deleteP);
-
+  
+  substract.addEventListener('click',subtracttoShopCart)
   divshopping.appendChild(shoppingCart); 
   
   })
@@ -104,6 +107,13 @@ function addtoShopCart(e){
   showshopping();
 }
 
+function subtracttoShopCart(e){
+  let element = e.target.getAttribute('id');
+  shoppings.splice(parseInt(shoppings.indexOf(element)),1)
+  showshopping();
+}
+
+/*function deletefromShopCa*/
 
 
 btnshops.addEventListener('click', () => {
