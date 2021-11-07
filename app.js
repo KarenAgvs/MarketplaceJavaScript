@@ -1,9 +1,12 @@
 const main = document.getElementById('main');
 const btnshops=document.querySelector('.btn-shops');
-const shopocult=document.querySelector('.shop-ocult');
+const divshopping =document.querySelector('.div-shopping ');
 
 
 shoppings=[]
+btnshops.addEventListener('click', () => {
+  shopocult.classList.toggle('shop-ocult');
+})
 
 create_cards();
 function create_cards(){
@@ -23,7 +26,7 @@ function create_cards(){
     image_card.src=atributes.img; 
     image_card.setAttribute('alt','Image Card');
     image_card.classList.add('img'); 
-    btn_card.setAttribute('id','btn-card');
+    btn_card.setAttribute('id','btn-card', atributes.id);
     price_product.classList.add('cprice_product');
     price_product.textContent=atributes.price;
     name_product.classList.add('cname_product');
@@ -40,18 +43,26 @@ function create_cards(){
   });
 }
 
+
 function Showshopping(){
-  shopocult.innerHTML=''
+  divshopping.innerHTML=''
   let listShop=[... new Set(shoppings)]
 
   listShop.forEach(elemnt => {
     const allproducts=products.filter(productos => {
-      return productos.id === parseInt(item);
+      return productos.id === parseInt(elemnt);
     })
 
-
+    const sumAmount=0;
+     
+    for (let id of shoppings){
+      if (id===elemnt){
+        sumAmount++
+      }
+    }
 
   const shoppingCart = document.createElement('div');
+  shoppingCart.classList.add('cartShopElements')
   const name = document.createElement('p');
   const price = document.createElement('p');
   const amount = document.createElement('p');
@@ -59,21 +70,26 @@ function Showshopping(){
   const substract = document.createElement('button');
   const deleteP = document.createElement('button');
 
+  add.setAttribute=('id',allproducts[0].id);
+  substract.setAttribute=('id',allproducts[0].id);
+  deleteP.setAttribute=('id',allproducts[0].id);
+  name.textContent=allproducts[0].name;
+  price.textContent=allproducts[0].price;
+  amount.textContent=sumAmount;
+
 
   add.textContent='>';
   substract.textContent='<';
-  deleteP.textContent='x'
+  deleteP.textContent='x';
 
   shoppingCart.appendChild(name);
   shoppingCart.appendChild(price);
-  shoppingCart.appendChild(amount);
   shoppingCart.appendChild(add);
+  shoppingCart.appendChild(amount);
   shoppingCart.appendChild(substract);
   shoppingCart.appendChild(deleteP);
+  divshopping.appendChild(shoppingCart);
+  
+  })
 }
-
-
-    
-
-
 
