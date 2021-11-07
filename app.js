@@ -4,17 +4,12 @@ const divshopping =document.querySelector('.div-shopping ');
 
 
 shoppings=[]
-btnshops.addEventListener('click', () => {
-  shopocult.classList.toggle('shop-ocult');
-})
+
 
 create_cards();
 function create_cards(){
   products.forEach((atributes)=>{
-    
-    console.log(products);
     const card_render = document.createElement('div');
-    const card_main = document.createElement('div');
     const div_image = document.createElement('div');
     const image_card = document.createElement('img');
     const price_product = document.createElement('p');
@@ -26,12 +21,14 @@ function create_cards(){
     image_card.src=atributes.img; 
     image_card.setAttribute('alt','Image Card');
     image_card.classList.add('img'); 
-    btn_card.setAttribute('id','btn-card', atributes.id);
+    btn_card.setAttribute('id', atributes.id);
+    btn_card.classList.add('btn-card');
     price_product.classList.add('cprice_product');
     price_product.textContent=atributes.price;
     name_product.classList.add('cname_product');
     name_product.textContent=atributes.name;
     btn_card.textContent = 'Add';
+    btn_card.addEventListener('click',addtoShopCart);
     
     
     div_image.appendChild(image_card);
@@ -44,25 +41,27 @@ function create_cards(){
 }
 
 
-function Showshopping(){
+function showshopping(){
   divshopping.innerHTML=''
-  let listShop=[... new Set(shoppings)]
+  let listShop= new Set(shoppings)
 
   listShop.forEach(elemnt => {
     const allproducts=products.filter(productos => {
       return productos.id === parseInt(elemnt);
     })
 
-    const sumAmount=0;
+    let sumAmount=0;
      
-    for (let id of shoppings){
+    for (id of shoppings){
       if (id===elemnt){
-        sumAmount++
+        sumAmount=sumAmount+1;
       }
     }
 
   const shoppingCart = document.createElement('div');
   shoppingCart.classList.add('cartShopElements')
+  const imageProduct=document.createElement('img');
+  imageProduct.classList.add('imageProduct');
   const name = document.createElement('p');
   const price = document.createElement('p');
   const amount = document.createElement('p');
@@ -70,26 +69,43 @@ function Showshopping(){
   const substract = document.createElement('button');
   const deleteP = document.createElement('button');
 
-  add.setAttribute=('id',allproducts[0].id);
-  substract.setAttribute=('id',allproducts[0].id);
-  deleteP.setAttribute=('id',allproducts[0].id);
+  add.classList.add('botons');
+  substract.classList.add('botons');
+  deleteP.classList.add('botons');
+
+
+  add.setAttribute('id',allproducts[0].id);
+  substract.setAttribute('id',allproducts[0].id);
+  deleteP.setAttribute('id',allproducts[0].id);
   name.textContent=allproducts[0].name;
   price.textContent=allproducts[0].price;
+  imageProduct.src=allproducts[0].img;
+  
+
+  substract.textContent='<';
+  add.textContent='>';
+  deleteP.textContent='x';
   amount.textContent=sumAmount;
 
-
-  add.textContent='>';
-  substract.textContent='<';
-  deleteP.textContent='x';
-
+  shoppingCart.appendChild( imageProduct);
   shoppingCart.appendChild(name);
   shoppingCart.appendChild(price);
-  shoppingCart.appendChild(add);
-  shoppingCart.appendChild(amount);
   shoppingCart.appendChild(substract);
+  shoppingCart.appendChild(amount);
+  shoppingCart.appendChild(add);
   shoppingCart.appendChild(deleteP);
-  divshopping.appendChild(shoppingCart);
+
+  divshopping.appendChild(shoppingCart); 
   
   })
 }
+function addtoShopCart(e){
+  shoppings.push(e.target.getAttribute('id'));
+  showshopping();
+}
 
+
+
+btnshops.addEventListener('click', () => {
+  divshopping.classList.toggle('shop-ocult');
+})
