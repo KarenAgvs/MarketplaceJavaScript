@@ -5,7 +5,6 @@ const divshopping =document.querySelector('.div-shopping ');
 
 shoppings=[]
 
-
 create_cards();
 function create_cards(){
   products.forEach((atributes)=>{
@@ -70,7 +69,6 @@ function showshopping(){
   const deleteP = document.createElement('button');
   const totalPrice=document.createElement('p');
 
-
   add.classList.add('botons');
   substract.classList.add('botons');
   deleteP.classList.add('botons');
@@ -80,8 +78,6 @@ function showshopping(){
   price.classList.add('atributes');
   amount.classList.add('atributes');
 
-
-
   add.setAttribute('id',allproducts[0].id);
   substract.setAttribute('id',allproducts[0].id);
   deleteP.setAttribute('id',allproducts[0].id);
@@ -89,15 +85,10 @@ function showshopping(){
   price.textContent=allproducts[0].price;
   imageProduct.src=allproducts[0].img;
 
-  
-  
-
   substract.textContent='<';
   add.textContent='>';
   deleteP.textContent='x';
   amount.textContent=sumAmount;
-
-  
 
   shoppingCart.appendChild( imageProduct);
   shoppingCart.appendChild(name);
@@ -135,8 +126,6 @@ function deletefromShopCart(e){
   })
   showshopping();
 }
-
-
 
 btnshops.addEventListener('click', () => {
   divshopping.classList.toggle('shop-ocult');
