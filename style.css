@@ -26,9 +26,16 @@ body {
 }
 .div-shopping{
   background-color: rgb(32, 28, 28);
-  width: 400px;
+  width: 300px;
   border-radius: 2px;
+  padding: 1.5rem;
+  position: absolute;
+  left: 1rem;
+  top: 10rem; 
+  height: 90vh;
 }
+
+
 .shop-ocult{
   display: none;
 }
