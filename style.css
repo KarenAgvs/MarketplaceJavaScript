@@ -34,12 +34,23 @@ body {
 }
 
 .botons{
-  border:none
+  border:none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #fff;
+}
+
+.red{
+  color: brown;
+}
+.atributes{
+  padding: 2%;
 }
 
 .imageProduct{
   width: 15%;
   height: 15%;
+  border-radius:2px ;
 }
 
 .cartShopElements{

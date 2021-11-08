@@ -68,10 +68,18 @@ function showshopping(){
   const add = document.createElement('button');
   const substract = document.createElement('button');
   const deleteP = document.createElement('button');
+  const totalPrice=document.createElement('p');
+
 
   add.classList.add('botons');
   substract.classList.add('botons');
   deleteP.classList.add('botons');
+  deleteP.classList.add('red')
+
+  name.classList.add('atributes');
+  price.classList.add('atributes');
+  amount.classList.add('atributes');
+
 
 
   add.setAttribute('id',allproducts[0].id);
@@ -80,6 +88,8 @@ function showshopping(){
   name.textContent=allproducts[0].name;
   price.textContent=allproducts[0].price;
   imageProduct.src=allproducts[0].img;
+
+  
   
 
   substract.textContent='<';
@@ -96,10 +106,12 @@ function showshopping(){
   shoppingCart.appendChild(amount);
   shoppingCart.appendChild(add);
   shoppingCart.appendChild(deleteP);
+  shoppingCart.appendChild(totalPrice);
   
   substract.addEventListener('click',subtracttoShopCart)
   deleteP.addEventListener('click',deletefromShopCart)
   add.addEventListener('click', addtoShopCart)
+
   divshopping.appendChild(shoppingCart); 
   
   })
